@@ -27,6 +27,7 @@ public:
 
 private:
 	
+    bool addHead(int, string*);
 };
 
 # endif
