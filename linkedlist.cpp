@@ -21,6 +21,29 @@ bool LinkedList::addHead(int id, string* data)
     return true;
 }
 
+bool LinkedList::nodeCouple(bool success, int id, string* data, Node* current, Node* newNode)
+{
+    if (id > current->data.id && !current->next)
+    {
+        current->next = newNode;
+        newNode->prev = current;
+    }
+    else if (id < current->data.id && !current->prev)
+    {
+        current->prev = newNode;
+        newNode->next = current;
+        head = newNode;
+    }
+    else
+    {
+        newNode->prev = current->prev;
+        newNode->next = current;
+        current->prev->next = newNode;
+        current->prev = newNode;
+    }
+
+    return true;
+}
 bool LinkedList::addNode(int id, string* data)
 {
     bool success = false;
@@ -50,3 +73,4 @@ bool LinkedList::addNode(int id, string* data)
     }
     return success;
 }
+
