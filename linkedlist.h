@@ -26,8 +26,9 @@ public:
     bool exists(int);
 
 private:
-	
+	Node *head;
     bool addHead(int, string*);
+    bool nodeCouple(bool, int, string*, Node*, Node*);
 };
 
 # endif
