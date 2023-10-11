@@ -74,7 +74,26 @@ bool LinkedList::addNode(int id, string* data)
     return success;
 }
 
+bool LinkedList::deleteNode(int id)
+{
+    bool success = false;
 
+    if (id > 0 && head)
+    {
+        Node* current = head;
+
+        while (current && !(id == current->data.id))
+        {
+            current = current->next;
+        }
+
+        if (current && id == current->data.id)
+        {
+            success = deleting(current);
+        }
+    }
+    return success;
+}
 
 bool LinkedList::deleting(Node* current)
 {
