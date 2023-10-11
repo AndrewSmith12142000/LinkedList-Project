@@ -119,3 +119,61 @@ bool LinkedList::deleting(Node* current)
     delete current;
     return true;
 }
+
+bool LinkedList::getNode(int id, Data* data)
+{
+    bool success = false;
+
+    if (id > 0 && head)
+    {
+        Node* current = head;
+
+        while (current && !(id == current->data.id))
+        {
+            current = current->next;
+        }
+
+        if (current && id == current->data.id)
+        {
+            data->id = current->data.id;
+            data->data = current->data.data;
+            success = true;
+        }
+    }
+    return success;
+}
+
+void LinkedList::printList(bool backward)
+{
+    if (head == nullptr)
+    {
+        std::cout << "Empty List" << std::endl;
+    }
+    else
+    {
+        if (!backward)
+        {
+            Node* temp = head;
+            while (temp)
+            {
+                std::cout << temp->data.id << ": " << temp->data.data << std::endl;
+                temp = temp->next;
+            }
+        }
+        else
+        {
+            Node* temp = head;
+            // First go to the end of the list
+            while (temp->next)
+            {
+                temp = temp->next;
+            }
+            // Print the list in reverse order
+            while (temp)
+            {
+                std::cout << temp->data.id << ": " << temp->data.data << std::endl;
+                temp = temp->prev;
+            }
+        }
+    }
+}
