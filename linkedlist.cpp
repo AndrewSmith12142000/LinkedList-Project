@@ -74,3 +74,29 @@ bool LinkedList::addNode(int id, string* data)
     return success;
 }
 
+
+
+bool LinkedList::deleting(Node* current)
+{
+    if (!current->next && !current->prev)
+    {
+        head = nullptr;
+    }
+    else if (!current->prev)
+    {
+        head = current->next;
+        current->next->prev = nullptr;
+    }
+    else if (!current->next)
+    {
+        current->prev->next = nullptr;
+    }
+    else
+    {
+        current->prev->next = current->next;
+        current->next->prev = current->prev;
+    }
+
+    delete current;
+    return true;
+}
