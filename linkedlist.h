@@ -21,14 +21,12 @@ public:
     bool deleteNode(int);
     bool getNode(int, Data*);
     void printList(bool = false);
-    int getCount();
-    bool clearList();
-    bool exists(int);
 
 private:
 	Node *head;
     bool addHead(int, string*);
     bool nodeCouple(bool, int, string*, Node*, Node*);
+    bool deleting(Node*);
 };
 
 # endif
