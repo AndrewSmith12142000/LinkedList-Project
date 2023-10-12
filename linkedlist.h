@@ -21,6 +21,7 @@ public:
     bool deleteNode(int);
     bool getNode(int, Data*);
     void printList(bool = false);
+    int getCount();
     
 
 private:
