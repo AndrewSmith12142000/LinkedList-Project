@@ -22,6 +22,7 @@ public:
     bool getNode(int, Data*);
     void printList(bool = false);
     int getCount();
+    bool clearList();
     
 
 private:
