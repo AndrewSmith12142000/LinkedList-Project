@@ -23,6 +23,7 @@ public:
     void printList(bool = false);
     int getCount();
     bool clearList();
+    bool exists(int);
     
 
 private:
