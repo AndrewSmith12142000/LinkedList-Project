@@ -6,6 +6,11 @@
 
 LinkedList::LinkedList() : head(nullptr) {}
 
+LinkedList::~LinkedList()
+{
+    this->clearList();
+}
+
 
 bool LinkedList::addHead(int id, string* data)
 {
