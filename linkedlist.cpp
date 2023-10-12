@@ -179,3 +179,17 @@ int LinkedList::getCount()
     }
     return count;
 }
+
+bool LinkedList::clearList()
+{
+    Node* current = head;
+    while (current != nullptr)
+    {
+        Node* toDelete = current;
+        current = current->next;
+        delete toDelete;
+    }
+    head = nullptr;
+    return true;
+}
+
