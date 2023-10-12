@@ -1,5 +1,9 @@
 /*
- * your comment header here
+ Name: Andrew Smith
+ Coding 05
+ Purpose: This file represents the linked list
+ File: linkedlist.cpp
+ *
  */
 
 #include "linkedlist.h"
@@ -42,9 +46,9 @@ bool LinkedList::nodeCouple(bool success, int id, string* data, Node* current, N
         current->prev->next = newNode;
         current->prev = newNode;
     }
-
     return true;
 }
+
 bool LinkedList::addNode(int id, string* data)
 {
     bool success = false;
