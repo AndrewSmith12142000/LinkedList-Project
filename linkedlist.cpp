@@ -193,3 +193,16 @@ bool LinkedList::clearList()
     return true;
 }
 
+bool LinkedList::exists(int id)
+{
+    Node* current = head;
+    while (current != nullptr)
+    {
+        if (current->data.id == id)
+        {
+            return true;
+        }
+        current = current->next;
+    }
+    return false;
+}
