@@ -43,7 +43,6 @@ bool LinkedList::nodeCouple(bool success, int id, string* data, Node* current, N
 bool LinkedList::addNode(int id, string* data)
 {
     bool success = false;
-
     if (id > 0 && !head)
     {
         success = this->addHead(id, data);
@@ -73,7 +72,6 @@ bool LinkedList::addNode(int id, string* data)
 bool LinkedList::deleteNode(int id)
 {
     bool success = false;
-
     if (id > 0 && head)
     {
         Node* current = head;
@@ -111,7 +109,6 @@ bool LinkedList::deleting(Node* current)
         current->prev->next = current->next;
         current->next->prev = current->prev;
     }
-
     delete current;
     return true;
 }
@@ -119,7 +116,6 @@ bool LinkedList::deleting(Node* current)
 bool LinkedList::getNode(int id, Data* data)
 {
     bool success = false;
-
     if (id > 0 && head)
     {
         Node* current = head;
@@ -159,12 +155,10 @@ void LinkedList::printList(bool backward)
         else
         {
             Node* temp = head;
-            // First go to the end of the list
             while (temp->next)
             {
                 temp = temp->next;
             }
-            // Print the list in reverse order
             while (temp)
             {
                 std::cout << temp->data.id << ": " << temp->data.data << std::endl;
