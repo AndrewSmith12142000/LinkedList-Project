@@ -59,11 +59,6 @@ bool LinkedList::addNode(int id, string* data)
     else if (id > 0 && head)
     {
         Node* current = head;
-        Node* newNode = new Node;
-        newNode->data.id = id;
-        newNode->data.data = *data;
-        newNode->next = nullptr;
-        newNode->prev = nullptr;
 
         while (current->next && id > current->data.id)
         {
@@ -72,6 +67,11 @@ bool LinkedList::addNode(int id, string* data)
 
         if (id != current->data.id)
         {
+        	Node* newNode = new Node;
+        	newNode->data.id = id;
+        	newNode->data.data = *data;
+        	newNode->next = nullptr;
+        	newNode->prev = nullptr;
             success = nodeCouple(success, id, data, current, newNode);
         }
     }
