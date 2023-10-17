@@ -16,16 +16,6 @@ LinkedList::~LinkedList()
 }
 
 
-bool LinkedList::addHead(int id, string* data)
-{
-    head = new Node;
-    head->data.id = id;
-    head->data.data = *data;
-    head->next = nullptr;
-    head->prev = nullptr;
-    return true;
-}
-
 bool LinkedList::nodeCouple(bool success, int id, string* data, Node* current, Node* newNode)
 {
     if (id > current->data.id && !current->next)
@@ -52,14 +42,20 @@ bool LinkedList::nodeCouple(bool success, int id, string* data, Node* current, N
 bool LinkedList::addNode(int id, string* data)
 {
     bool success = false;
+
+    bool createNode = false;
+    bool createHead = false;
+
+	Node* current = head;
+    Node* newNode;
+
     if (id > 0 && !head)
     {
-        success = this->addHead(id, data);
+        createNode = true;
+        createHead = true;
     }
     else if (id > 0 && head)
     {
-        Node* current = head;
-
         while (current->next && id > current->data.id)
         {
             current = current->next;
@@ -67,13 +63,27 @@ bool LinkedList::addNode(int id, string* data)
 
         if (id != current->data.id)
         {
-        	Node* newNode = new Node;
-        	newNode->data.id = id;
-        	newNode->data.data = *data;
-        	newNode->next = nullptr;
-        	newNode->prev = nullptr;
-            success = nodeCouple(success, id, data, current, newNode);
+            createNode = true;
         }
+    }
+
+    if (createNode)
+    {
+        newNode = new Node;
+        newNode->data.id = id;
+        newNode->data.data = *data;
+        newNode->next = nullptr;
+        newNode->prev = nullptr;
+
+		if (createHead)
+		{
+			head = newNode;
+			success = true;
+		}
+		else
+		{
+			success = nodeCouple(success, id, data, current, newNode);
+		}
     }
     return success;
 }
