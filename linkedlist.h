@@ -32,7 +32,6 @@ public:
 
 private:
 	Node *head;
-    bool addHead(int, string*);
     bool nodeCouple(bool, int, string*, Node*, Node*);
     bool deleting(Node*);
 };
